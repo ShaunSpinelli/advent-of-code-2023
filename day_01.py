@@ -41,7 +41,8 @@ def get_first_last_number_(string):
         except ValueError:
             continue
 
-    return int(f"{first}{last}")
+    # return int(f"{first}{last}")
+    return int(f"{first}{first}")
 
 
 def get_first_last_number(string):
@@ -73,9 +74,7 @@ def get_first_last_number(string):
         except ValueError:
             continue
 
-    res = int(f'{first["value"]}{last["value"]}')
-    print(f"{res}: {string}")
-    return res
+    return int(f'{first["value"]}{last["value"]}')
 
 
 items = lines_to_arr(PATH)
