@@ -18,17 +18,17 @@ lines = lines_to_arr(PATH)
 
 winning_counts = []
 # part 1
-races = [[40,233], [82,1011], [84,1110], [92,1487]]
+races = [[40, 233], [82, 1011], [84, 1110], [92, 1487]]
 
 # part 2
 races = [[40828492, 233101111101487]]
 
 for time, max_dist in races:
     winning_dist_cont = 0
-    for hold in tqdm(range(1, time+1)):
-        dist = (time - hold ) * hold
-        if dist > max_dist: winning_dist_cont += 1
+    for hold in tqdm(range(1, time + 1)):
+        dist = (time - hold) * hold
+        if dist > max_dist:
+            winning_dist_cont += 1
     winning_counts.append(winning_dist_cont)
-    
-print(winning_counts)
 
+print(winning_counts)

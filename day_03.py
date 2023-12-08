@@ -10,7 +10,8 @@ lines = lines_to_arr(PATH)
 def contain_symbol(arr):
     print(arr)
     for i in arr:
-        if i == ".": continue
+        if i == ".":
+            continue
         try:
             int(i)
         except ValueError:
@@ -69,18 +70,18 @@ def contain_symbol(arr):
 #                 if y + 1 < len(lines):
 #                     # print("Check below")
 #                     if contain_symbol(lines[y + 1][start:endp]): counted = True
-                
-#                 if counted: 
+
+#                 if counted:
 #                     print(f"Counted: {num} on row {y}")
 #                     total = total + int(num)
-                    
+
 #                 if not counted:
 #                     pass
 #                     # print(f"Not counted {num} on row {y}")
-                
+
 #                 num = ""
 #                 # symbol = False
-                
+
 #             continue
 
 #         try:
@@ -92,10 +93,10 @@ def contain_symbol(arr):
 #         except ValueError:
 #             # print(f"Symbol: {char} is at x: {x} y: {y}")
 #             # symbols.append({"x": x, "y": y})
-            
+
 #             continue
-        
-        
+
+
 symbol = False
 total = 0
 
@@ -116,7 +117,7 @@ for y, line in enumerate(lines):
                 t = x + 1
                 start = x - (len(num)) - 1 if x - (len(num)) - 1 > 0 else 0
                 # start = x - (len(num)) if x - (len(num)) > 0 else 0
-                
+
                 # something wrong with this line
                 endp = x + 1 if x + 1 < len(line) - 1 else x
 
@@ -127,28 +128,31 @@ for y, line in enumerate(lines):
                 counted = False
                 if y > 0:
                     # print("Check above")
-                    if contain_symbol(lines[y - 1][start:endp]): counted = True
+                    if contain_symbol(lines[y - 1][start:endp]):
+                        counted = True
 
                 # y look
-                if contain_symbol(lines[y][start:endp]): counted = True
+                if contain_symbol(lines[y][start:endp]):
+                    counted = True
 
                 # y + 1 look
                 if y + 1 < len(lines):
                     # print("Check below")
-                    if contain_symbol(lines[y + 1][start:endp]): counted = True
-                
-                if counted: 
+                    if contain_symbol(lines[y + 1][start:endp]):
+                        counted = True
+
+                if counted:
                     print(f"Counted: {num} on row {y}")
                     total = total + int(num)
-                    
+
                 if not counted:
                     pass
                     # print(f"Not counted {num} on row {y}")
-                
+
                 num = ""
             # print(f"Symbol: {char} is at x: {x} y: {y}")
             # symbols.append({"x": x, "y": y})
-            
+
             # continue
 
 

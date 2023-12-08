@@ -7,7 +7,6 @@ PATH = "/home/shaun/src/advent-of-code-2023/day_04_test_input.txt"
 lines = lines_to_arr(PATH)
 
 
-
 # Part 1
 # total = 0
 
@@ -16,10 +15,10 @@ lines = lines_to_arr(PATH)
 #     w, m = line.split("|")
 #     winning_numbers = [ i for i in w.split(":")[1].strip().split(" ") if i != ""]
 #     mine = [ i for i in m.strip().split(" ") if i != ""]
-    
+
 #     # print(winning_numbers)
 #     # print(mine)
-    
+
 #     for num in winning_numbers:
 #         try:
 #             mine.index(num) # raises if not found
@@ -30,9 +29,8 @@ lines = lines_to_arr(PATH)
 #         except ValueError:
 #             pass
 #     total += line_score
-    
-# print(f"line Score: {total}")    
 
+# print(f"line Score: {total}")
 
 
 # Part 2
@@ -40,21 +38,21 @@ total = 0
 
 max = 1
 
-games_count = { 1: 1}
+games_count = {1: 1}
 
 for c, line in enumerate(lines):
-    game =  c + 1
+    game = c + 1
     wins = 0
     w, m = line.split("|")
-    winning_numbers = [ i for i in w.split(":")[1].strip().split(" ") if i != ""]
-    mine = [ i for i in m.strip().split(" ") if i != ""]
-    
+    winning_numbers = [i for i in w.split(":")[1].strip().split(" ") if i != ""]
+    mine = [i for i in m.strip().split(" ") if i != ""]
+
     # print(winning_numbers)
     # print(mine)
-    
+
     for num in winning_numbers:
         try:
-            mine.index(num) # raises if not found
+            mine.index(num)  # raises if not found
             wins += 1
         except ValueError:
             pass
@@ -62,17 +60,17 @@ for c, line in enumerate(lines):
     print(f"Game {game}")
     print(f"wins: {wins} ")
     for i in range(wins):
-        k = i + game + 1 # next game
-        current = games_count.get(k, 0) # always start with one cause its the original
+        k = i + game + 1  # next game
+        current = games_count.get(k, 0)  # always start with one cause its the original
         if current == 0:
-            current += 2 # one for original and one for copy
-        
+            current += 2  # one for original and one for copy
+
         mulitplier = games_count[game]
         # print(current)
         print(f"k={k} current={current} mulitplier={mulitplier}")
-        
+
         games_count[k] = (current + 1) * mulitplier
-    if game ==  3:
+    if game == 3:
         break
     print(f"{list(games_count.values())}")
     print("")
@@ -80,8 +78,8 @@ for c, line in enumerate(lines):
 
 # print(games_count.values())
 # print("{1 2 4 8 15 6}")
-    
-print(f"Final Score: {sum(games_count.values())}")    
+
+print(f"Final Score: {sum(games_count.values())}")
 
 
 c = """
